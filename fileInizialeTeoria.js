@@ -33,3 +33,9 @@ function generateStudentCode(student) {
     console.log(code);                                              //--> result: pide2009 
 }
 generateStudentCode(student1);
+
+
+
+
+
+//crea un oggetto principal{ no degree ma school + array di teachers + addstudentToTeacher(cognome teacher) + best teacher che ha lo student con la media puiù alta}
