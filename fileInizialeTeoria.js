@@ -16,7 +16,7 @@ console.log(calculateGradeMean(student1));                          //ALTRI DUE 
                                                                     // }
 
                                                                     // for (let i = 0; i < student.grade.length; i++) {
-                                                                    //     const element = student.grade[i];
+                                                                    //     const grade = student.grade[i];
                                                                     //     sum = sum + grade;
                                                                     // }
 

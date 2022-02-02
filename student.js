@@ -29,6 +29,18 @@ class STUDENT {
         let code = this.name[0] + this.name[1] + this.surname[0] + this.surname[1] + birthYear; 
         return code;                                            
     }
+
+    toString(){                                                      //toString() è un metodo delle classi che printa una stringa 
+        let mean = this.calculateMean();
+        if (mean === -1) {
+            mean = "N/C"
+        }
+        let studentDescription = "Nome: " + this.name + "\n"
+                               + "Cognome: " + this.surname + "\n"
+                               + "Eta: " + this.age + "\n"
+                               + "Media: " + mean;
+        return studentDescription;
+    }
 }
 
 
