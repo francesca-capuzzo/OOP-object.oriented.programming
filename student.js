@@ -2,8 +2,8 @@ class STUDENT {
     constructor(name, surname, age, gender){                       //il costruttore è fondamentale in ogni classe per la costruzione dell'oggetto studenti e va a prendere tutte le key fondamentali per la creazione del suo oggetto
         this.name = name;                                          //il nome che viene dato in fase di costruzione sarà il nome attribuito alla proprietà (THIS si riferisce all'oggetto che verrà creato)
         this.surname = surname;
-        this.gender = gender;
         this.age = age;
+        this.gender = gender;
         this.grades = [];
     }
 
@@ -17,7 +17,7 @@ class STUDENT {
         if (this.grades.length === 0){                             //questo serve perchè lo studente non ha ancora voti e mettere una stringa SI PUò ma sarebbe meglio mettere un numero per evitare che a volte il risultato sia una stringa e altre volte un numero
             return -1;
         }
-        let sum = this.grades.reduce((p, c) => p + c, 0);
+        let sum = this.grades.reduce((p, c) => p + c);
         let mean = sum / this.grades.length;
         return mean;
     }
@@ -33,12 +33,12 @@ class STUDENT {
     toString(){                                                      //toString() è un metodo delle classi che printa una stringa 
         let mean = this.calculateMean();
         if (mean === -1) {
-            mean = "N/C"
+            return mean = "N/C"
         }
-        let studentDescription = "Nome: " + this.name + "\n"
+        let studentDescription = "\nNome: " + this.name + "\n"
                                + "Cognome: " + this.surname + "\n"
                                + "Eta: " + this.age + "\n"
-                               + "Media: " + mean;
+                               + "Media: " + mean; + "\n"
         return studentDescription;
     }
 }
