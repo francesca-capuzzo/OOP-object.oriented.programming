@@ -3,6 +3,7 @@ let student2 = new STUDENT("paperino", "duck", 13, "m");
 //----
 let student3 = new STUDENT("clarabella", "clark", 10, "f");
 let student4 = new STUDENT("eta", "beta", 10, "m");
+let student5 = new STUDENT("etalix", "etax", 10, "m");
 
 let teacher1 = new Teacher("paperone", "duck", 70, "m", "terza media");
 let teacher2 = new Teacher("topolino", "smith", 50, "m", "prima media")
@@ -82,6 +83,9 @@ console.log("PROFILO PROF 2:\n",teacher2.toString());
 console.log("STUDENTI PROF 2:\n",teacher2.students);
 console.log("MIGLIOR STUDENTE PROF 2:\n", teacher2.bestStudent());
 
+
+
+
 //PRINCIPAL
 principal.addTeacher(teacher1);
 principal.addTeacher(teacher2);
@@ -89,3 +93,5 @@ console.log("DATI PRESIDE:\n", principal.toString());
 
 console.log("MIGLIOR PROFESSORE:\n",principal.bestTeacher());
 
+principal.addStudentToTeacher("smith", "etet2012");
+console.log(teacher2.students);

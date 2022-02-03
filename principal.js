@@ -37,6 +37,30 @@ class Principal {
         // }
     }
 
+    addStudentToTeacher(teacherSurname, studentToAdd) {
+
+        let hasStudent = false;
+        if (this.teachers.surname === teacherSurname) {
+            for (const stud of this.teachers.students) {
+                if (stud.generateCode() === studentToAdd.generateCode()) {
+                    hasStudent = true;
+                }
+            }
+            if (hasStudent === false) {
+                this.teachers.students.push(studentToAdd);
+            }
+        }
+
+        // if (this.teachers.includes(studentToAdd.generateCode())) {
+        //     return;
+        // }
+        // for (const teach of this.teachers) {
+        //     this.teachers.push(this.addStudent())
+        // }
+    }
+
+
+
     bestTeacher() {
 
         if (this.teachers.length === 0) {
