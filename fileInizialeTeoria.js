@@ -105,5 +105,12 @@ class Principal extends Person{
 
 //NB: --> UNA CLASSE HA UN SOLO GENITORE!!!!!!!!!!!! --> posso solo ereditare da un solo genitore!!!
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//CLASSI STATICHE:
+
+const result = Math.sqrt(64);
+console.log(result);               //--> risultato: 8
+
+//math è una classe come student, teacher ecc ma non necessita di essere invocata perchè non ha bisogno di diverse variabili!!
 
