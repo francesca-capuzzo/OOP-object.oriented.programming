@@ -35,7 +35,75 @@ function generateStudentCode(student) {
 generateStudentCode(student1);
 
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//PROPRIETà DEGLI OGGETTI:
+
+//per evitare che una proprità venga cambiata (SOLO PER CONVENZIONE!!!!!) si scrive un _ davanti alla proprietà:
+class STUDENT {
+
+    constructor(name, surname, age, gender){                      
+        this.name = name;                                          
+        this.surname = surname;
+        this.age = age;
+        this._gender = gender;
+        this._grades = [];
+    }
+
+
+    set grade(value){                                   //questo rimpiazzerebbe l'addGrade() di prima e si chiama nel main come se fosse una proprietà:
+        if (value >= 0 && value <= 10) {                //student1.grade = 8;
+            this._grades.push(value)                    //student2.grade = 10;
+        }
+    }
 
 
 
-//crea un oggetto principal{ no degree ma school + array di teachers + addstudentToTeacher(cognome teacher) + best teacher che ha lo student con la media puiù alta}
+    get gender(){
+        return this._gender;                            //questo fa in modo che possa fare student1.gender e leggere il gender ma NON POSSO fare student1.gender = "f"
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//STRUTTURA CHE SI RIPETE:
+//creo una nuova classe (PERSON):
+class Person{
+    constructor(name, surname, age, gender){
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
+        this.gender = gender;
+    }
+}
+
+//cancello le altre proprietà dai costruttori dove queste proprietà si ripetono e li scrivo con EXTEND E SUPER:
+
+class STUDENT extends Person {
+    constructor(name, surname, age, gender){
+        super(name, surname, age, gender)
+        this.grades = [];
+    }
+}
+
+class Teacher extends Person{
+    constructor(name, surname, age, gender, degree){
+        super(name, surname, age, gender)
+        this.degree = degree;
+        this.students = [];
+    }
+}
+
+class Principal extends Person{
+    constructor(name, surname, age, gender, school){
+        super(name, surname, age, gender)
+        this.school = school;
+        this.teachers = [];
+    }
+}
+
+//INOLTRE POSSO DARE A PERSON DELLE FUNZIONI CHE TUTTI POSSONO USARE!!
+//VEDI GENERATECODE().
+
+//NB: --> UNA CLASSE HA UN SOLO GENITORE!!!!!!!!!!!! --> posso solo ereditare da un solo genitore!!!
+
+
+

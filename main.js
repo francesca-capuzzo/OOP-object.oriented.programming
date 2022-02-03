@@ -32,9 +32,10 @@ student1.addGrade(10);
 
 console.log("VOTI STUD 1:\n", student1.grades);
 console.log("MEDIA STUD 1:\n",student1.calculateMean());
-//console.log(student1.generateCode());
-//console.log(student1.toString());
+console.log(student1.generateCode());
+console.log(student1.toString());
 
+console.log(student1.yob);                               //proprietà calcolata a run-time (come la length)
 
 //student2
 teacher1.addGrade("padu2009", 7);
@@ -45,9 +46,9 @@ teacher1.addGrade("padu2009", 5);
 
 console.log("VOTI STUD 2:\n",student2.grades);
 console.log("MEDIA STUD 2:\n",student2.calculateMean());
-//console.log(student2.generateCode());
-//console.log(student2.toString())
-//console.log(student2.toString());
+console.log(student2.generateCode());
+console.log(student2.toString())
+console.log(student2.toString());
 
 
 //student3
@@ -93,5 +94,8 @@ console.log("DATI PRESIDE:\n", principal.toString());
 
 console.log("MIGLIOR PROFESSORE:\n",principal.bestTeacher());
 
-principal.addStudentToTeacher("smith", "etet2012");
+principal.addStudentToTeacher("smith", student5);
 console.log(teacher2.students);
+
+console.log("codice insegnante generato da PERSON: ",teacher2.generateCode());
+console.log("codice preside generato da PERSON: ",principal.generateCode());

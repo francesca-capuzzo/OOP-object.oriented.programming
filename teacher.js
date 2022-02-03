@@ -1,9 +1,10 @@
-class Teacher {
+class Teacher extends Person{
     constructor(name, surname, age, gender, degree){
-        this.name = name;
-        this.surname = surname;
-        this.age = age;
-        this.gender = gender;
+        // this.name = name;
+        // this.surname = surname;
+        // this.age = age;
+        // this.gender = gender;
+        super(name, surname, age, gender)
         this.degree = degree;
         this.students = [];
     }
@@ -14,7 +15,10 @@ class Teacher {
                                + "Eta: " + this.age + "\n"
                                + "Classe: " + this.degree + "\n"
                                + "----------------- \n"
-                               + "Studenti: \n" + this.students + "\n";
+                               + "Studenti: \n"; //+ this.students + "\n";
+        for (const stud of this.students) {
+            teacherDescription += stud.toString() + "\n";
+        }
         return teacherDescription;
     }
 
@@ -25,7 +29,8 @@ class Teacher {
         //     }
         // this.students.push(student);
         // }
-        
+
+
         let hasStudent = false;
         for (const stud of this.students) {
             if (stud.generateCode() === student.generateCode()) {
@@ -64,25 +69,27 @@ class Teacher {
     }
 
     bestStudent(){
-        // if (this.students.length === 0) {
-        //     return "nessun miglior studente"
-        // }
-        // let bestStudent = this.students[0];
-        // for (let i = 1; i < this.students.length; i++){
-        //     const stud = this.students[i];
-        //     if (stud.calculateMean() > bestStudent.calculateMean()) {
-        //         bestStudent = stud;
-        //     }
-        // }
-        // return bestStudent.toString();
-
-
         if (this.students.length === 0) {
-            return "Nessuno studente"
+            return null;
         }
-        return this.students.reduce((std1, std2) => std1.calculateMean() > std2.calculateMean() ? std1 : std2).toString();
+        let bestStudent = this.students[0];
+        for (let i = 1; i < this.students.length; i++){
+            const stud = this.students[i];
+            if (stud.calculateMean() > bestStudent.calculateMean()) {
+                bestStudent = stud;
+            }
+        }
+        return bestStudent;
+
+    //     if (this.students.length === 0) {
+    //         return null;
+    //     }
+    //     return this.students.reduce((std1, std2) => std1.calculateMean() > std2.calculateMean() ? std1 : std2);
     }
 
+    bestStudentToString(){
+       return this.bestStudent().toString();
+    }
 
     generateCode() {
         let now = new Date();                                           
@@ -91,8 +98,6 @@ class Teacher {
         let code = this.name[0] + this.name[1] + this.surname[0] + this.surname[1] + birthYear; 
         return code;                                            
     }
-
-
 
 
 }
